@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ba5x8rm3s8ldj"]
+
+[ext_resource type="PackedScene" uid="uid://diouwe7p7cwda" path="res://scenes/player.tscn" id="1_o5qli"]
+
+[node name="Main" type="Node2D" unique_id=1618556524]
+
+[node name="World" type="Node2D" parent="." unique_id=923930091]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=819178760]
+
+[node name="Player" parent="." unique_id=409183078 instance=ExtResource("1_o5qli")]
+position = Vector2(-127, 74)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2133599050]
+position = Vector2(127, -74)
