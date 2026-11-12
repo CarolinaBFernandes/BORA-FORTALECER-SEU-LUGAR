@@ -142,7 +142,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1242715408]
@@ -150,8 +150,8 @@ script = ExtResource("1_v6fml")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=936824067]
 sprite_frames = SubResource("SpriteFrames_p0vlq")
-animation = &"idle"
-frame_progress = 0.7768935
+animation = &"walk"
+frame_progress = 0.85601074
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2112498871]
 position = Vector2(0, -40)
