@@ -142,7 +142,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk",
-"speed": 4.0
+"speed": 8.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1242715408]
@@ -151,11 +151,10 @@ script = ExtResource("1_v6fml")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=936824067]
 sprite_frames = SubResource("SpriteFrames_p0vlq")
 animation = &"walk"
-frame_progress = 0.85601074
+frame_progress = 0.12234398
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2112498871]
 position = Vector2(0, -40)
 offset = Vector2(130, 0)
 limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 1.0
+position_smoothing_speed = 8.0

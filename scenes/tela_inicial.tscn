@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://brm4jmkj7dhu7"]
+
+[ext_resource type="Texture2D" uid="uid://dpcgi6xtm47vw" path="res://assets/ui/tela_inicial.png.png" id="1_hkbxb"]
+[ext_resource type="Script" uid="uid://dtx6fugnsvuu0" path="res://scenes/tela_inicial.gd" id="1_xo13d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xo13d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2o6u0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvj2l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxryr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_whubj"]
+
+[node name="TelaInicial" type="Control" unique_id=804698024]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xo13d")
+
+[node name="Organizador" type="VBoxContainer" parent="." unique_id=1767396415]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="BotaoJogar" type="Button" parent="." unique_id=1235535609]
+modulate = Color(1, 0, 1, 1)
+self_modulate = Color(1, 0, 1, 1)
+z_index = 10
+custom_minimum_size = Vector2(90, 30)
+layout_mode = 1
+offset_left = 109.0
+offset_top = 132.0
+offset_right = 224.0
+offset_bottom = 162.0
+theme_override_font_sizes/font_size = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xo13d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2o6u0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hvj2l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mxryr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_whubj")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=284607803]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 280.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_hkbxb")
+expand_mode = 1
+
+[connection signal="pressed" from="BotaoJogar" to="." method="_on_botao_jogar_pressed"]

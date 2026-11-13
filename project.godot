@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BORA FORTALECER SEU LUGAR"
-run/main_scene="uid://ba5x8rm3s8ldj"
+run/main_scene="uid://brm4jmkj7dhu7"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -39,3 +39,4 @@ rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
