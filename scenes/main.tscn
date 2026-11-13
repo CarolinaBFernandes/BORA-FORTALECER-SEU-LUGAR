@@ -4,7 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bqembls24k1q1" path="res://assets/environments/mp_city_street_tileset_pack_v1.0/mp_city_street_tileset_pack/mp_cs_doors_windows.png" id="1_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://dl1nsvqd8m46d" path="res://assets/environments/mp_city_street_tileset_pack_v1.0/mp_city_street_tileset_pack/mp_cs_background.png" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://dpqagarql02ae" path="res://assets/environments/city_street_2_tileset_pack_v01/city_street_2_tileset_pack_v01/street_decoration.png" id="3_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://diouwe7p7cwda" path="res://scenes/Player.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://diouwe7p7cwda" path="res://scenes/player.tscn" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://b80dt4r3u444i" path="res://assets/ui/Pixel UI pack 3/05.png" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://cp6r8k5hqt6i0" path="res://assets/medieval assets/Environment/Cartoon_Medieval_Armory_Level_Set_Environment - Wooden Barrel.png" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://bq44ixj4vlltw" path="res://scenes/barril_portal.gd" id="7_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("1_tbgi4")
@@ -2088,6 +2091,76 @@ texture = ExtResource("1_tbgi4")
 sources/0 = SubResource("TileSetAtlasSource_o6xl0")
 sources/1 = SubResource("TileSetAtlasSource_85g3d")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
+atlas = ExtResource("6_tefeu")
+region = Rect2(336, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6xl0"]
+atlas = ExtResource("6_tefeu")
+region = Rect2(288, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tipki"]
+atlas = ExtResource("6_tefeu")
+region = Rect2(240, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
+atlas = ExtResource("6_tefeu")
+region = Rect2(192, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
+atlas = ExtResource("6_tefeu")
+region = Rect2(144, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
+atlas = ExtResource("6_tefeu")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
+atlas = ExtResource("6_tefeu")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("6_tefeu")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5h11f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tefeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6xl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tipki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85g3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_choun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya4ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
+size = Vector2(10, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx8n8"]
+size = Vector2(8, 0.5)
+
 [node name="Main" type="Node2D" unique_id=1618556524]
 
 [node name="World" type="Node2D" parent="." unique_id=923930091]
@@ -2124,5 +2197,30 @@ tile_set = SubResource("TileSet_ev2hp")
 z_index = 3
 position = Vector2(-550, -46)
 
+[node name="SinalWifi" type="AnimatedSprite2D" parent="Player" unique_id=2096138303]
+texture_filter = 1
+position = Vector2(1.0000081, -4)
+scale = Vector2(0.314, 0.3)
+sprite_frames = SubResource("SpriteFrames_5h11f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=168554739]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_5h11f")
+
 [node name="FimDoMapa" type="Marker2D" parent="." unique_id=1030341635]
 position = Vector2(913, -68)
+
+[node name="BarrilPortal" type="Area2D" parent="." unique_id=1424403789]
+script = ExtResource("7_tipki")
+
+[node name="CartoonMedievalArmoryLevelSetEnvironmentWoodenBarrel" type="Sprite2D" parent="BarrilPortal" unique_id=113201551]
+position = Vector2(415, -39)
+scale = Vector2(0.1328125, 0.1328125)
+texture = ExtResource("7_o6xl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BarrilPortal" unique_id=24631080]
+position = Vector2(415, -45.25)
+shape = SubResource("RectangleShape2D_bx8n8")
+
+[connection signal="body_entered" from="BarrilPortal" to="BarrilPortal" method="_on_body_entered"]
+[connection signal="body_exited" from="BarrilPortal" to="BarrilPortal" method="_on_body_exited"]
