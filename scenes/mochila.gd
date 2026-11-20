@@ -17,7 +17,7 @@ func _ready() -> void:
 	label_noticia.z_index = 10
 	
 	# Posiciona o texto um pouco acima da mochila
-	label_noticia.position = Vector2(-60, -30)
+	label_noticia.position = Vector2(-60, -15)
 	label_noticia.visible = false
 	
 	# Adiciona o texto dentro da Mochila
