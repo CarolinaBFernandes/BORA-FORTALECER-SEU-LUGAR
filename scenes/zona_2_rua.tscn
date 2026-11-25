@@ -9,9 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://doxpwul03d35h" path="res://assets/environments/mp_city_street_tileset_pack_v1.0/mp_city_street_tileset_pack/mp_cs_vegetation.png" id="5_eel1b"]
 [ext_resource type="Texture2D" uid="uid://dq3mymf3mnd56" path="res://assets/environments/mp_house_interiors_tileset_pack_v1.0/mp_house_interiors_tileset_pack/bathroom.png" id="6_by24s"]
 [ext_resource type="Texture2D" uid="uid://dj0l0pntl2ucm" path="res://assets/environments/mp_house_interiors_tileset_pack_v1.0/mp_house_interiors_tileset_pack/garage.png" id="6_gl6j1"]
-[ext_resource type="PackedScene" uid="uid://diouwe7p7cwda" path="res://scenes/Player.tscn" id="7_obj8j"]
+[ext_resource type="PackedScene" uid="uid://diouwe7p7cwda" path="res://scenes/player.tscn" id="7_obj8j"]
 [ext_resource type="Texture2D" uid="uid://b64w73g76rpvu" path="res://assets/environments/mp_house_interiors_tileset_pack_v1.0/mp_house_interiors_tileset_pack/kitchen.png" id="7_t225p"]
-[ext_resource type="Texture2D" uid="uid://b80dt4r3u444i" path="res://assets/ui/Pixel UI pack 3/05.png" id="8_jivnu"]
 [ext_resource type="Texture2D" uid="uid://dpqagarql02ae" path="res://assets/environments/city_street_2_tileset_pack_v01/city_street_2_tileset_pack_v01/street_decoration.png" id="11_by24s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_omusq"]
@@ -8690,70 +8689,6 @@ texture = ExtResource("5_d56bd")
 [sub_resource type="TileSet" id="TileSet_20cd6"]
 sources/0 = SubResource("TileSetAtlasSource_apa4q")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
-atlas = ExtResource("8_jivnu")
-region = Rect2(336, 0, 48, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o6xl0"]
-atlas = ExtResource("8_jivnu")
-region = Rect2(288, 0, 48, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tipki"]
-atlas = ExtResource("8_jivnu")
-region = Rect2(240, 0, 48, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
-atlas = ExtResource("8_jivnu")
-region = Rect2(192, 0, 48, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
-atlas = ExtResource("8_jivnu")
-region = Rect2(144, 0, 48, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
-atlas = ExtResource("8_jivnu")
-region = Rect2(96, 0, 48, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
-atlas = ExtResource("8_jivnu")
-region = Rect2(48, 0, 48, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
-atlas = ExtResource("8_jivnu")
-region = Rect2(0, 0, 48, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5h11f"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tefeu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o6xl0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tipki")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_85g3d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_choun")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ya4ey")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eb6dy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_trceg")
-}],
-"loop": 2,
-"name": &"default",
-"speed": 0.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
 size = Vector2(10, 14)
 
@@ -8855,13 +8790,7 @@ region_rect = Rect2(64.70182, 192.75624, 46.36361, 47.510605)
 z_index = 4
 position = Vector2(-550, -46)
 
-[node name="SinalWifi" type="AnimatedSprite2D" parent="Player" unique_id=2096138303]
-texture_filter = 1
-position = Vector2(1.0000081, -4)
-scale = Vector2(0.314, 0.3)
-sprite_frames = SubResource("SpriteFrames_5h11f")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=168554739]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player" unique_id=168554739]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_5h11f")
 
