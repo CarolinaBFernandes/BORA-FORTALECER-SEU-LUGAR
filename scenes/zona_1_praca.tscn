@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://bhvy025i0sodu" path="res://assets/school stationaries and sports equipment/School Stationaries & Sports Equipment/Backpack-Grey.png" id="10_4ph4r"]
 [ext_resource type="Texture2D" uid="uid://bqmcuevbctgo" path="res://assets/characters/MinifolksVillagers/Outline/MiniOldMan.png" id="13_4ph4r"]
 [ext_resource type="Script" uid="uid://b8v5n8idwpk21" path="res://scenes/npc_praca.gd" id="13_omusq"]
+[ext_resource type="Texture2D" uid="uid://bt8pw8vyqvrqp" path="res://assets/school stationaries and sports equipment/School Stationaries & Sports Equipment/Soccer Ball.png" id="15_cutph"]
+[ext_resource type="PackedScene" uid="uid://bo4g27m4wc834" path="res://scenes/obstaculo_movel.tscn" id="16_kdskt"]
+[ext_resource type="Script" uid="uid://nk3822mf0qso" path="res://scenes/obstaculo_movel.gd" id="17_du4es"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_omusq"]
 texture = ExtResource("1_jbdmw")
@@ -236,7 +239,6 @@ texture = ExtResource("1_jbdmw")
 8:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_5h11f"]
-tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_omusq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
@@ -2695,6 +2697,9 @@ sources/0 = SubResource("TileSetAtlasSource_4ph4r")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx8n8"]
 size = Vector2(9, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
+size = Vector2(117.59068, 20)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_omusq"]
 atlas = ExtResource("13_4ph4r")
 region = Rect2(0, 0, 32, 32)
@@ -2734,18 +2739,25 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cutph"]
 size = Vector2(36.626953, 17.160507)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_b80o4"]
+radius = 3.9253845
+
 [node name="Main" type="Node2D" unique_id=1618556524]
 
 [node name="World" type="Node2D" parent="." unique_id=923930091]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="World" unique_id=1693324937]
+z_index = 1
+position = Vector2(0, -31)
+scale = Vector2(0.8, 0.8)
+tile_map_data = PackedByteArray("AACY//3/AAAIAAwAAACY//7/AAAIAA0AAACY////AAAIAA4AAACZ//3/AAAJAAwAAACZ//7/AAAJAA0AAACZ////AAAJAA4AAACa//3/AAAKAAwAAACa//7/AAAKAA0AAACa////AAAKAA4AAADC////AAALAAoAAAA=")
 tile_set = SubResource("TileSet_5h11f")
 
 [node name="TileMapLayer_Decoracoes" type="TileMapLayer" parent="World" unique_id=911020535]
 z_index = 2
 position = Vector2(0, 1)
 scale = Vector2(0.4, 0.4)
-tile_map_data = PackedByteArray("AACr//j/AAAOAAoAAACr//n/AAAOAAsAAACr//r/AAAOAAwAAACs//j/AAAPAAoAAACs//n/AAAPAAsAAACs//r/AAAPAAwAAACu//j/AAAFAAcAAACu//n/AAAFAAgAAACv//j/AAAGAAcAAACv//n/AAAGAAgAAACo//j/AAAFAAcAAACo//n/AAAFAAgAAACp//j/AAAGAAcAAACp//n/AAAGAAgAAABTAPH/AAABAAEAAABTAPL/AAABAAIAAABTAPP/AAABAAMAAABTAPT/AAABAAQAAABTAPX/AAABAAUAAABUAPH/AAACAAEAAABUAPL/AAACAAIAAABUAPP/AAACAAMAAABUAPT/AAACAAQAAABUAPX/AAACAAUAAABVAPH/AAADAAEAAABVAPL/AAADAAIAAABVAPP/AAADAAMAAABVAPT/AAADAAQAAABVAPX/AAADAAUAAABeAPH/AAABAAEAAABeAPL/AAABAAIAAABeAPP/AAABAAMAAABeAPT/AAABAAQAAABeAPX/AAABAAUAAABfAPH/AAACAAEAAABfAPL/AAACAAIAAABfAPP/AAACAAMAAABfAPT/AAACAAQAAABfAPX/AAACAAUAAABgAPH/AAADAAEAAABgAPL/AAADAAIAAABgAPP/AAADAAMAAABgAPT/AAADAAQAAABgAPX/AAADAAUAAAA=")
+tile_map_data = PackedByteArray("AABTAPH/AAABAAEAAABTAPL/AAABAAIAAABTAPP/AAABAAMAAABTAPT/AAABAAQAAABTAPX/AAABAAUAAABUAPH/AAACAAEAAABUAPL/AAACAAIAAABUAPP/AAACAAMAAABUAPT/AAACAAQAAABUAPX/AAACAAUAAABVAPH/AAADAAEAAABVAPL/AAADAAIAAABVAPP/AAADAAMAAABVAPT/AAADAAQAAABVAPX/AAADAAUAAABeAPH/AAABAAEAAABeAPL/AAABAAIAAABeAPP/AAABAAMAAABeAPT/AAABAAQAAABeAPX/AAABAAUAAABfAPH/AAACAAEAAABfAPL/AAACAAIAAABfAPP/AAACAAMAAABfAPT/AAACAAQAAABfAPX/AAACAAUAAABgAPH/AAADAAEAAABgAPL/AAADAAIAAABgAPP/AAADAAMAAABgAPT/AAADAAQAAABgAPX/AAADAAUAAAA=")
 tile_set = SubResource("TileSet_s86f4")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=819178760]
@@ -2765,8 +2777,7 @@ y_sort_origin = 8
 
 [node name="TileMapLayer_Casas" type="TileMapLayer" parent="." unique_id=1114899346]
 position = Vector2(0, 1)
-scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AAC7//v/AAADAAMAAAC7//r/AAADAAMAAAC7//n/AAADAAMAAAC8//n/AAADAAMAAAC9//n/AAADAAMAAAC9//r/AAADAAMAAAC9//v/AAADAAMAAAC8//v/AAADAAMAAAC8//r/AAADAAMAAAC+//n/AAADAAMAAAC+//r/AAADAAMAAAC+//v/AAADAAMAAAC6//v/AAADAAMAAAC6//r/AAADAAMAAAC6//n/AAADAAMAAAC///n/AAADAAMAAAC///r/AAADAAMAAAC///v/AAADAAMAAAC5//v/AAACAAMAAAC5//r/AAACAAMAAAC5//n/AAACAAMAAADA//v/AAAEAAMAAADA//r/AAAEAAMAAADA//n/AAAEAAMAAAC4//j/AAAFAA4AAADB//j/AAAHAA4AAAC5//j/AAAGAA4AAAC6//j/AAAGAA4AAAC7//j/AAAGAA4AAAC8//j/AAAGAA4AAAC9//j/AAAGAA4AAAC+//j/AAAGAA4AAAC///j/AAAGAA4AAADA//j/AAAGAA4AAAC4//f/AAAFAA0AAAC5//f/AAAGAA0AAAC6//f/AAAGAA0AAAC7//f/AAAGAA0AAAC8//f/AAAGAA0AAAC9//f/AAAGAA0AAAC+//f/AAAGAA0AAAC///f/AAAGAA0AAADA//f/AAAGAA0AAADB//f/AAAGAA0AAAC4//b/AAAFAAsAAAC5//b/AAAFAAsAAAC6//b/AAAFAAsAAAC7//b/AAAFAAsAAAC8//b/AAAFAAsAAAC9//b/AAAFAAsAAAC+//b/AAAFAAsAAAC///b/AAAFAAsAAADA//b/AAAFAAsAAADB//b/AAAFAAsAAAA=")
+tile_map_data = PackedByteArray("AADp//j/AAAYABQAAADq//j/AAAZABQAAADq//n/AAAZABUAAADq//r/AAAZABYAAADq//v/AAAZABcAAADq//z/AAAZABgAAADq//3/AAAZABkAAADr//j/AAAaABQAAADs//j/AAAbABQAAADs//n/AAAbABUAAADs//r/AAAbABYAAADs//v/AAAbABcAAADs//z/AAAbABgAAADs//3/AAAbABkAAADt//j/AAAcABQAAADo//j/AAAXABQAAADn//f/AAAWABMAAADo//f/AAAXABMAAADp//f/AAAYABMAAADq//f/AAAZABMAAADr//f/AAAaABMAAADs//f/AAAbABMAAADt//f/AAAcABMAAADu//f/AAAdABMAAAA=")
 tile_set = SubResource("TileSet_ev2hp")
 
 [node name="TileMapLayer_Hospital" type="TileMapLayer" parent="." unique_id=201194814]
@@ -2776,7 +2787,7 @@ tile_map_data = PackedByteArray("AAACAPn/AAABAAEAAAACAPr/AAABAAIAAAACAPv/AAABAAM
 tile_set = SubResource("TileSet_bx8n8")
 
 [node name="Letreiro" type="Sprite2D" parent="TileMapLayer_Hospital" unique_id=736747884]
-position = Vector2(136.66669, -185)
+position = Vector2(136.1264, -185.24535)
 texture = ExtResource("6_3sgd8")
 region_enabled = true
 region_rect = Rect2(35.1689, 295, 170.8311, 18)
@@ -2828,6 +2839,19 @@ texture = ExtResource("1_jbdmw")
 region_enabled = true
 region_rect = Rect2(128, 112, 32, 16)
 
+[node name="Ponto_Onibus" type="Sprite2D" parent="TileMapLayer_Hospital" unique_id=561944213]
+position = Vector2(-845.35767, -62.317413)
+texture = ExtResource("1_jbdmw")
+region_enabled = true
+region_rect = Rect2(16, 184, 96, 56)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer_Hospital" unique_id=1260823343]
+position = Vector2(-751.25183, -47.478592)
+scale = Vector2(0.6504105, 0.75)
+texture = ExtResource("8_omusq")
+region_enabled = true
+region_rect = Rect2(128, 888, 48, 40)
+
 [node name="FimDoMapa" type="Marker2D" parent="." unique_id=1030341635]
 position = Vector2(913, -68)
 
@@ -2855,6 +2879,12 @@ texture = ExtResource("10_4ph4r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mochila" unique_id=1801393738]
 position = Vector2(-65.01463, -31.029194)
 shape = SubResource("RectangleShape2D_bx8n8")
+
+[node name="AreaBrilho" type="Area2D" parent="Mochila" unique_id=1306142895]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mochila/AreaBrilho" unique_id=1717015556]
+position = Vector2(-69.81936, -30.82143)
+shape = SubResource("RectangleShape2D_5h11f")
 
 [node name="Poste1" type="Sprite2D" parent="." unique_id=826203324]
 visible = false
@@ -2937,7 +2967,25 @@ shape = SubResource("RectangleShape2D_cutph")
 [node name="Player" parent="." unique_id=1242715408 instance=ExtResource("5_jbdmw")]
 position = Vector2(-419.2501, -45.157913)
 
+[node name="ObstaculoMovel" parent="." unique_id=1171508983 instance=ExtResource("16_kdskt")]
+z_index = 10
+position = Vector2(-339.779, -130.94505)
+script = ExtResource("17_du4es")
+textura_item = ExtResource("15_cutph")
+girar_sprite = true
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="ObstaculoMovel" index="0" unique_id=1099145212]
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("15_cutph")
+
+[node name="CollisionShape2D" parent="ObstaculoMovel" index="1" unique_id=969416141]
+position = Vector2(0.0922966, 0.3691826)
+shape = SubResource("CircleShape2D_b80o4")
+
 [connection signal="body_entered" from="Mochila" to="Mochila" method="_on_body_entered"]
 [connection signal="body_exited" from="Mochila" to="Mochila" method="_on_body_exited"]
 [connection signal="body_entered" from="NPC_praca" to="NPC_praca" method="_on_body_entered"]
 [connection signal="body_exited" from="NPC_praca" to="NPC_praca" method="_on_body_exited"]
+
+[editable path="ObstaculoMovel"]
