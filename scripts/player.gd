@@ -103,3 +103,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_barril_portal_body_entered(body: Node2D) -> void:
 	pass
+
+
+func _on_npc_praca_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_npc_praca_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
