@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://g28trb0cemee" path="res://scenes/npc.tscn" id="12_2yr70"]
 [ext_resource type="Texture2D" uid="uid://hd20lywciue3" path="res://assets/characters/MinifolksVillagers/Outline/MiniWorker.png" id="13_c6epc"]
 [ext_resource type="Script" uid="uid://bheu4tevg4alu" path="res://scenes/area_computador.gd" id="14_ni5vg"]
+[ext_resource type="Texture2D" uid="uid://prrtgtw7uh3p" path="res://assets/environments/cafe.png" id="16_2yr70"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("1_xbf5f")
@@ -12333,5 +12334,10 @@ mensagem = "Notícia reescrita: A obra da cidade começa segunda-feira. (+1 sina
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaImpressora" unique_id=82322970]
 position = Vector2(367, -305)
 shape = SubResource("RectangleShape2D_3nbp6")
+
+[node name="PlacaCafe" type="Sprite2D" parent="." unique_id=478109957]
+position = Vector2(-64.5, -140)
+scale = Vector2(0.018595042, 0.018518519)
+texture = ExtResource("16_2yr70")
 
 [editable path="NPC_praca"]
