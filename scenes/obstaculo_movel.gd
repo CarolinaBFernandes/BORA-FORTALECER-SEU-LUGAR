@@ -1,11 +1,11 @@
 extends Area2D
 
-@export var textura_item: Texture2D # Arraste o PNG aqui direto pelo Inspetor!
-@export var mensagem_noticia: String = "frase teste -1 sinal"
+@export var textura_item: Texture2D 
+@export var mensagem_noticia: String = "Boato! Torneio da praça foi cancelado—fonte: ouvi dizer! (-1 sinal)"
 @export var valor_sinal: int = -13 # Negativo = tira 1 barrinha de sinal
 @export var distancia_patrulha: float = 28.0
 @export var velocidade: float = 25.0
-@export var girar_sprite: bool = false # Marque se quiser que o item role como uma bola
+@export var girar_sprite: bool = false # girar ou nao a bola
 
 var direcao: int = 1
 var pos_x_inicial: float = 0.0
@@ -16,7 +16,7 @@ var tween_brilho: Tween = null
 func _ready() -> void:
 	pos_x_inicial = position.x
 
-	# Aplica o PNG escolhido no Inspetor, se houver
+	
 	if textura_item != null:
 		$Sprite2D.texture = textura_item
 
@@ -34,8 +34,8 @@ func _ready() -> void:
 	label_noticia.visible = false
 	add_child(label_noticia)
 
-	# Brilho vermelho contínuo
-# Brilho vermelho mais claro e suave
+	
+	# Brilho vermelho mais claro e suave
 	tween_brilho = create_tween().set_loops()
 	tween_brilho.tween_property($Sprite2D, "modulate", Color(1.45, 0.72, 0.72, 1.0), 0.45).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween_brilho.tween_property($Sprite2D, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.45).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

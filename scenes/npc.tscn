@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://g28trb0cemee"]
+
+[ext_resource type="Script" uid="uid://b8v5n8idwpk21" path="res://scenes/npc_praca.gd" id="1_abqhh"]
+[ext_resource type="Texture2D" uid="uid://bqmcuevbctgo" path="res://assets/characters/MinifolksVillagers/Outline/MiniOldMan.png" id="2_rv78h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omusq"]
+atlas = ExtResource("2_rv78h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cutph"]
+atlas = ExtResource("2_rv78h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2inmm"]
+atlas = ExtResource("2_rv78h")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdskt"]
+atlas = ExtResource("2_rv78h")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bx8n8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omusq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cutph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2inmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdskt")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cutph"]
+size = Vector2(36.626953, 17.160507)
+
+[node name="NPC_praca" type="Area2D" unique_id=1357461997]
+script = ExtResource("1_abqhh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1636965722]
+position = Vector2(419.8702, -48.34763)
+scale = Vector2(1.0397587, 1.1590366)
+sprite_frames = SubResource("SpriteFrames_bx8n8")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.5091305
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=811618622]
+position = Vector2(418.6089, -38.82143)
+shape = SubResource("RectangleShape2D_cutph")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

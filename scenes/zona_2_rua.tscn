@@ -8689,8 +8689,8 @@ texture = ExtResource("5_d56bd")
 [sub_resource type="TileSet" id="TileSet_20cd6"]
 sources/0 = SubResource("TileSetAtlasSource_apa4q")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
-size = Vector2(10, 14)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5iqjx"]
+size = Vector2(2048.1553, 20)
 
 [node name="Main" type="Node2D" unique_id=1618556524]
 
@@ -8788,13 +8788,15 @@ region_rect = Rect2(64.70182, 192.75624, 46.36361, 47.510605)
 
 [node name="Player" parent="." unique_id=1242715408 instance=ExtResource("7_obj8j")]
 z_index = 4
-position = Vector2(-550, -46)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player" unique_id=168554739]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_5h11f")
+position = Vector2(-550.9892, -47.780605)
 
 [node name="FimDoMapa" type="Marker2D" parent="." unique_id=1030341635]
 position = Vector2(913, -68)
 
 [node name="Objetos_Cidade" type="Node2D" parent="." unique_id=862220737]
+
+[node name="ChãoRua" type="StaticBody2D" parent="." unique_id=1475676277]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChãoRua" unique_id=765724287]
+position = Vector2(224.7074, -20.687489)
+shape = SubResource("RectangleShape2D_5iqjx")

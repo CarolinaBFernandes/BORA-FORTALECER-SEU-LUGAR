@@ -1,38 +1,33 @@
-
 extends CharacterBody2D
 
 @export var speed: float = 80.0
-@export var jump_height: float = 35.0
-@export var jump_duration: float = 0.7
+@export var jump_velocity: float = -210.0 # Força do pulo para cima (negativo sobe)
+@export var gravity: float = 520.0 # Gravidade puxando para baixo
 @export var limite_esquerdo: float = -550.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var fim_do_mapa: Marker2D = get_node_or_null("../FimDoMapa")
 @onready var sinal_wifi: AnimatedSprite2D = $SinalWifi
 
-var is_jumping: bool = false
-var jump_timer: float = 0.0
-var wifi_y_inicial: float = 0.0
-
-
-func _ready() -> void:
-	if sinal_wifi != null:
-		wifi_y_inicial = sinal_wifi.position.y
-
 
 func _physics_process(delta: float) -> void:
+	# GRAVIDADE REAL NO CORPO TODO
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	# INICIAR PULO (SÓ QUANDO ESTIVER PISANDO NO CHÃO OU PLATAFORMA)
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = jump_velocity
 
 	# MOVIMENTO HORIZONTAL
 	var direction = Input.get_axis("ui_left", "ui_right")
-
 	velocity.x = direction * speed
-	velocity.y = 0.0
 
+	# MOVE O CORPO E A COLISÃO JUNTOS
 	move_and_slide()
 
 	# LIMITES DO CENÁRIO
 	var limite_direito = INF
-
 	if is_instance_valid(fim_do_mapa):
 		limite_direito = fim_do_mapa.global_position.x
 
@@ -48,32 +43,9 @@ func _physics_process(delta: float) -> void:
 	elif direction > 0:
 		sprite.flip_h = false
 
-	# INICIAR PULO
-	if Input.is_action_just_pressed("ui_accept") and not is_jumping:
-		is_jumping = true
-		jump_timer = 0.0
-
-	# ANIMAÇÃO DO PULO
-	if is_jumping:
-		jump_timer += delta
-
-		var progress = minf(jump_timer / jump_duration, 1.0)
-
-		sprite.position.y = -sin(progress * PI) * jump_height
-
-		if sinal_wifi != null:
-			sinal_wifi.position.y = wifi_y_inicial + sprite.position.y
-
+	# ANIMAÇÕES
+	if not is_on_floor():
 		sprite.play("jump")
-
-		if progress >= 1.0:
-			is_jumping = false
-			sprite.position.y = 0.0
-
-			if sinal_wifi != null:
-				sinal_wifi.position.y = wifi_y_inicial
-
-	# ANIMAÇÕES DE MOVIMENTO
 	elif direction != 0:
 		sprite.play("walk")
 	else:
@@ -106,8 +78,8 @@ func _on_barril_portal_body_entered(body: Node2D) -> void:
 
 
 func _on_npc_praca_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	pass
 
 
 func _on_npc_praca_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	pass
